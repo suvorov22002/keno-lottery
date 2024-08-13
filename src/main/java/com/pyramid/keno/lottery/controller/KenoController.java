@@ -1,11 +1,11 @@
 package com.pyramid.keno.lottery.controller;
 
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Suvorov Vassilievitch
@@ -16,16 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class KenoController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String showWelcomePage(ModelMap model) {
-        System.out.println("Controller Here");
-        model.put("partner", "RAMATBET");
+    @Value("${app.service.url}")
+    private String URL;
+    @RequestMapping(value = "/{partner}/room/{room}", method = RequestMethod.GET)
+    public String showWelcomePage(ModelMap model, HttpServletRequest request,
+                                  @PathVariable("partner") String partner, @PathVariable("room") String room) {
+    //    System.out.println("Controller Here: " + room);
+        model.put("partner", partner);
+        model.put("room", room);
+        model.put("contextPath", request.getContextPath());
+        model.put("UrlService", URL);
+        model.put("game", "KENO");
         return "index";
     }
 
     @RequestMapping(value = "/keno", method = RequestMethod.GET)
     public String showKenoPage(ModelMap model) {
-        System.out.println("Controller Here");
         model.put("partner", "RAMATBET");
         return "index";
     }

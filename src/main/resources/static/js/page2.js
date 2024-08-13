@@ -1,9 +1,10 @@
 let page2 = $('#page2');
+//let page2 = page2.jsp;
 let page2content =
     "<div id='page2-bloc-left'>" +
     "<div id='page2-shuffle'>" +
     "<div id ='shuffle-container'>" +
-    "<img alt='shuffle' src='./assets/shuffle.gif'/>" +
+    "<img alt='shuffle' src='/assets/shuffle.gif'/>" +
     "</div>" +
     "<div id='outputZoom'>" +
     "<span class='number'></span>" +
@@ -15,93 +16,17 @@ let page2content =
     "<div id='page2-jackpot'>" +
     "<span class='label label-bloc1'>jackpot</span>" +
     "<div class='jackpot-container-page-2'>" +
-    "<div class='countJackpot'>" +
-    "<span class='numberJackpot-page-2'>" +
-    "<span >0</span>" +
-    "<span >1</span>" +
-    "<span >2</span>" +
-    "<span >3</span>" +
-    "<span >4</span>" +
-    "<span >5</span>" +
-    "<span >6</span>" +
-    "<span >7</span>" +
-    "<span >8</span>" +
-    "<span >9</span>" +
+    "<span class='divide2-jackpotPage2' id='divide2-jackpot'>" +
     "</span>" +
-    "<span class='divider-jackpotPage2'><span>,</span></span>" +
-    "<span class='numberJackpot-page-2'>" +
-    "<span>0</span>" +
-    "<span>1</span>" +
-    "<span>2</span>" +
-    "<span>3</span>" +
-    "<span>4</span>" +
-    "<span>5</span>" +
-    "<span>6</span>" +
-    "<span>7</span>" +
-    "<span>8</span>" +
-    "<span>9</span>" +
-    "</span>" +
-    "<span class='numberJackpot-page-2'>" +
-    "<span>0</span>" +
-    "<span>1</span>" +
-    "<span>2</span>" +
-    "<span>3</span>" +
-    "<span>4</span>" +
-    "<span>5</span>" +
-    "<span>6</span>" +
-    "<span>7</span>" +
-    "<span>8</span>" +
-    "<span>9</span>" +
-    "</span>" +
-    "<span class='numberJackpot-page-2'>" +
-    "<span>0</span>" +
-    "<span>1</span>" +
-    "<span>2</span>" +
-    "<span>3</span>" +
-    "<span>4</span>" +
-    "<span>5</span>" +
-    "<span>6</span>" +
-    "<span>7</span>" +
-    "<span>8</span>" +
-    "<span>9</span>" +
-    "</span>" +
-    "<span class='divider-jackpotPage2'><span>.</span></span>" +
-    "</div>" +
-    "<div class='countJackpot-2'>" +
-    "<span class='numberJackpot-page-2-2'>" +
-    "<span >0</span>" +
-    "<span >1</span>" +
-    "<span >2</span>" +
-    "<span >3</span>" +
-    "<span >4</span>" +
-    "<span >5</span>" +
-    "<span >6</span>" +
-    "<span >7</span>" +
-    "<span >8</span>" +
-    "<span >9</span>" +
-    "</span>" +
-    "<span class='numberJackpot-page-2-2'>" +
-    "<span >0</span>" +
-    "<span >1</span>" +
-    "<span >2</span>" +
-    "<span >3</span>" +
-    "<span >4</span>" +
-    "<span >5</span>" +
-    "<span >6</span>" +
-    "<span >7</span>" +
-    "<span >8</span>" +
-    "<span >9</span>" +
-    "</span>" +
-    "</div>" +
     "</div>" +
     "</div>" +
     "<div id='page2-tirage'>" +
     "<div class='tirage-item'>" +
-    "<span class='label label-bloc1'>tirage</span>" +
-    "<span class='value'>32323</span>" +
+    "<span class='label-bloc1'>tirage</span>" +
+    "<span class='value' id='drawnumb'></span>" +
     "</div>" +
     "<div class='tirage-item'>" +
-    "<span class='label label-bloc1'>M</span>" +
+    "<span class='label-bloc1'>M</span>" +
     "<span id='multi' class='value'>-</span>" +
     "</div>" +
     "</div>" +
@@ -429,7 +354,7 @@ let page2content =
 
 
 
-let arrayNumroSortant = [10, 43, 31, 50, 68, 36, 72, 8, 80, 16, 24, 33, 56, 74, 46, 28, 78, 11, 45, 4];
+//let arrayNumroSortant = [35, 43, 31, 50, 68, 36, 72, 8, 80, 16, 24, 33, 56, 74, 46, 28, 78, 11, 45, 4];
 
 function setarrayNumroSortant() {
     //set number in first row
@@ -437,6 +362,7 @@ function setarrayNumroSortant() {
     let children1 = page2OutputWinnner1.eq(0).children();
     for (let i = 0; i < children1.length; i++) {
         let currentChildren1 = children1.eq(i);
+        //console.log("first row:"+arrayNumroSortant[i]);
         currentChildren1.append("<span class='numOutput num" + arrayNumroSortant[i] + "'>" + arrayNumroSortant[i] + "</span>");
     }
 
@@ -445,6 +371,7 @@ function setarrayNumroSortant() {
     let children2 = page2OutputWinnner2.eq(1).children()
     for (let i = 0; i < children2.length; i++) {
         let currentChildren2 = children2.eq(i);
+        //console.log("second row:"+arrayNumroSortant[i + 10]);
         currentChildren2.append("<span class='numOutput num" + arrayNumroSortant[i + 10] + "'>" + arrayNumroSortant[i + 10] + "</span>");
     }
 }
@@ -453,10 +380,19 @@ function animationCircle() {
     let l = 0;
     let page2OutputWinnner1 = $('#page2 .number-output');
     let children1 = page2OutputWinnner1.eq(0).children();
+    var tps = 50;
+
+    if(time === 185 && gamestate !== 1 && gamestate !== 4){
+        //   if(gamestate == 3){
+        tps = 1;
+    }
+
     let intervalIdpage2 = setInterval(
         () => {
+
             children1.eq(l).css('visibility', 'visible');
             children1.eq(l).addClass('animated bounceIn');
+
             l++;
 
             if (l > children1.length) {
@@ -466,8 +402,13 @@ function animationCircle() {
 
                 let page2OutputWinnner2 = $('#page2 .number-output');
                 let children2 = page2OutputWinnner2.eq(1).children();
+
+                if(time === 185 && gamestate !== 1 && gamestate !== 4){
+                    tps = 1;
+                }
                 let intervalId2page2 = setInterval(
                     () => {
+
                         children2.eq(m).css('visibility', 'visible');
                         children2.eq(m).addClass('animated bounceIn');
                         m++;
@@ -477,14 +418,13 @@ function animationCircle() {
 
                             animationSquare();
                         }
-                    }, 50
+                    }, tps
                 );
                 arrayInterval.push(intervalId2page2);
             }
-        }, 50
+        }, tps
     )
     arrayInterval.push(intervalIdpage2);
-
 
 
 }
@@ -493,9 +433,17 @@ function animationSquare() {
     let numberInput = $('#page2 .number-input');
     let k = 0;
 
+    //setarrayNumroSortant();
+
     //first row
     let firstChildrenNumberInput = numberInput.eq(0);
     let i = 0;
+    let tp = 50;
+
+    if(time === 185 && gamestate !== 1 && gamestate !== 4){
+        tp = 1;
+    }
+
     let intervalId = setInterval(
         () => {
             firstChildrenNumberInput.children().eq(i).css('visibility', 'visible');
@@ -504,15 +452,16 @@ function animationSquare() {
             if (i > firstChildrenNumberInput.children().length) {
                 clearInterval(intervalId)
             }
-        }, 50
+        }, tp
     )
     arrayInterval.push(intervalId);
-    //end first row
+
 
     let intervalId2 = setInterval(
         () => {
             let firstChildrenNumberInput = numberInput.eq(k + 1);
             let i = 0;
+
             let intervalId = setInterval(
                 () => {
                     firstChildrenNumberInput.children().eq(i).css('visibility', 'visible');
@@ -521,36 +470,67 @@ function animationSquare() {
                     if (i > firstChildrenNumberInput.children().length) {
                         clearInterval(intervalId)
                     }
-                }, 50
+                }, tp
             )
             arrayInterval.push(intervalId);
+
 
             k++;
             if (k > numberInput.length) {
                 clearInterval(intervalId2);
+                var tiemp = 200;
+                if(time === 185 && gamestate !== 1 && gamestate !== 4){
+                    tiemp = 1;
+                }
 
                 setTimeout(
                     () => {
-                        animationShowJackpotTirage();
 
+                        animationShowJackpotTirage();
+                        var __tps = 2000;
+                        if(time === 185 && gamestate !== 1 && gamestate !== 4){
+                            _tps = 1;
+                        }
                         setTimeout(
                             () => {
                                 $('#shuffle-container').css('visibility', 'visible');
                                 $('#shuffle-container').addClass('animated fadeIn');
+                                var _tps = 5000;
+                                if(time === 185 && gamestate !== 1 && gamestate !== 4){
+                                    _tps = 1;
+                                }
                                 setTimeout(
                                     () => {
-                                        animationOutputZoom(arrayNumroSortant[0]);
+
                                         let n = 1;
+                                        if(time === 185 && gamestate !== 1 && gamestate !== 4){
+                                            n = _str_combi.length - 1;
+                                            for (let ii = 0; ii < n; ii++) {
+                                                console.log('_str_combi '+_str_combi[ii])
+                                                animationAdd(_str_combi[ii]);
+                                            }
+
+                                        }
+                                        else{
+                                            console.log(' animationOutputZoom '+arrayNumroSortant[0])
+                                            if(arrayNumroSortant[0] !== undefined)
+                                                animationOutputZoom(arrayNumroSortant[0]);
+                                        }
+
                                         let intervalId4 = setInterval(
                                             () => {
-                                                animationOutputZoom(arrayNumroSortant[n]);
+                                                //                                         console.log(' animationOutputZoom '+arrayNumroSortant[n])
+                                                if(arrayNumroSortant[n] !== undefined)
+                                                    animationOutputZoom(arrayNumroSortant[n]);
                                                 n++;
+                                                if(n > 5 && n < 7) sendStateMessage(3);
                                                 if (n > arrayNumroSortant.length - 1) {
                                                     clearInterval(intervalId4);
 
                                                     setTimeout(
                                                         () => {
                                                             animationOutputMultiplicateur();
+                                                            //mise a jour de la fin du tirage(colone started)
 
                                                             setTimeout(
                                                                 () => {
@@ -564,11 +544,11 @@ function animationSquare() {
                                                 }
                                             }, 5000
                                         )
-                                    }, 5000
+                                    }, _tps
                                 )
-                            }, 2000
+                            }, __tps
                         )
-                    }, 200
+                    }, tiemp
                 )
             }
         }, 500
@@ -605,7 +585,7 @@ function animationJackpotCountNumberPartIntPage2(j, k) {
         currentNumber3 = j
     }
 
-    if (j == 0) {
+    if (j === 0) {
         coordY = 0;
         jackpotNumber.css("transform", "translateY(" + coordY + "px)");
 
@@ -625,7 +605,7 @@ function animationJackpotCountNumberPartDecimalPage2(j, k) {
         currentNumber3 = j
     }
 
-    if (j == 0) {
+    if (j === 0) {
         coordY = 0;
         jackpotNumber.css("transform", "translateY(" + coordY + "px)");
 
@@ -658,8 +638,8 @@ function setNumberInjackPotSecondPage2() {
             animationJackpotCountNumberPartDecimalPage2(parseInt(item[6]), 1);
 
             i++;
-            console.log(i, arrayJackpot3.length);
-            if (i == arrayJackpot3.length) {
+            //console.log(i, arrayJackpot3.length);
+            if (i === arrayJackpot3.length) {
                 clearInterval(setNumberInJackpotId);
             }
         }, 100
@@ -689,49 +669,52 @@ function setNumberInjackPotFirstPage2() {
 }
 
 function animationOutputZoom(number) {
-    let outputZoom = $('#page2 #outputZoom');
-    outputZoom.children().eq(0).text(number);
-    outputZoom.css('visibility', 'visible');
-    // outputZoom.removeClass('animated bounceOut')
-    outputZoom.addClass('animated zoomIn')
+    if(number !== undefined || number !== ""){
+        let outputZoom = $('#page2 #outputZoom');
+        outputZoom.children().eq(0).text(number);
+        outputZoom.css('visibility', 'visible');
+        // outputZoom.removeClass('animated bounceOut')
+        outputZoom.addClass('animated zoomIn')
 
-    if (number >= 1 && number <= 20) {
-        outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#1a7332, green)')
+        if (number >= 1 && number <= 20) {
+            outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#1a7332, green)')
+        }
+
+        if (number >= 21 && number <= 40) {
+            outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#336dff, blue)');
+        }
+
+        if (number >= 41 && number <= 60) {
+            outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#ad2b2b, red)');
+        }
+
+        if (number >= 61 && number <= 80) {
+            outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#f7d71e, #ebb746)');
+        }
+
+        setTimeout(
+            () => {
+                animationOutputZoomHide(number);
+            }, 2000
+        )
     }
 
-    if (number >= 21 && number <= 40) {
-        outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#336dff, blue)');
-    }
-
-    if (number >= 41 && number <= 60) {
-        outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#ad2b2b, red)');
-    }
-
-    if (number >= 61 && number <= 80) {
-        outputZoom.css('background', 'radial-gradient(circle at 5px 5px,#f7d71e, #ebb746)');
-    }
-
-    setTimeout(
-        () => {
-            animationOutputZoomHide(number);
-        }, 2000
-    )
 }
 
 function animationOutputMultiplicateur() {
     let multi = $('#page2 #multiplicateur');
-    multi.children().eq(0).text('1x');
+    multi.children().eq(0).text(multiplicateur+'x');
     multi.css('visibility', 'visible');
     multi.removeClass('animated bounceOut')
     multi.addClass('animated bounceIn')
-
+    //ndDraw();
+    sendStateMessage(4);
     setTimeout(
         () => {
             animationMultiHide();
         }, 2000
     )
 }
-
 
 function animationMultiHide(number) {
     let outputZoom = $('#page2 #multiplicateur');
@@ -740,7 +723,7 @@ function animationMultiHide(number) {
     setTimeout(
         () => {
             let currentMulti = $('#page2 #multi');
-            currentMulti.text('1x');
+            currentMulti.text(multiplicateur+'x');
         }, 1000
     )
 }
@@ -782,6 +765,36 @@ function animationOutputZoomHide(number) {
 
 }
 
+function animationAdd(number) {
+
+    let currentInput = $('#page2 #num' + number);
+
+    let currentOutput = $('span.num' + number);
+
+    currentInput.css('color', 'white')
+
+    if (number >= 1 && number <= 20) {
+        currentInput.css('background', 'radial-gradient(circle at 5px 5px,#1a7332, green)');
+        currentOutput.css('background', 'radial-gradient(circle at 5px 5px,#1a7332, green)');
+    }
+
+    if (number >= 21 && number <= 40) {
+        currentInput.css('background', 'radial-gradient(circle at 5px 5px,#336dff, blue)');
+        currentOutput.css('background', 'radial-gradient(circle at 5px 5px,#336dff, blue)');
+    }
+
+    if (number >= 41 && number <= 60) {
+        currentInput.css('background', 'radial-gradient(circle at 5px 5px,#ad2b2b, red)');
+        currentOutput.css('background', 'radial-gradient(circle at 5px 5px,#ad2b2b, red)');
+    }
+
+    if (number >= 61 && number <= 80) {
+        currentInput.css('background', 'radial-gradient(circle at 5px 5px,#f7d71e, #ebb746)');
+        currentOutput.css('background', 'radial-gradient(circle at 5px 5px,#f7d71e, #ebb746)');
+    }
+
+}
+
 function animationShowJackpotTirage() {
     setNumberInjackPotFirstPage2();
     let element1 = $('#page2-jackpot');
@@ -790,11 +803,16 @@ function animationShowJackpotTirage() {
     element2.css('visibility', 'visible');
     element1.addClass('animated bounceInUp');
     element2.addClass('animated bounceInUp');
+    var tpss = 2500;
+
+    if(time === 185 && gamestate !== 1 && gamestate !== 4){
+        tpss = 1;
+    }
 
     setTimeout(
         () => {
             setNumberInjackPotSecondPage2();
-        }, 2500
+        }, tpss
     )
 
 }
@@ -815,35 +833,38 @@ function animationHideJackpotTirage() {
 
 function page2animationHideNumeroOutput() {
     let i = 2;
-    let intervalIdManageCirclePage2 = setInterval(
-        () => {
-            let currentContainerCircle = $('.number-output').eq(i);
+    let isPage3Displayed = false;
 
-            let j = 10;
-            let intervalIdManageCirclePage2Item = setInterval(
-                () => {
-                    let currentOutputCircle = currentContainerCircle.children().eq(j);
-                    currentOutputCircle.removeClass('bounceIn');
-                    currentOutputCircle.addClass('animated zoomOut');
-                    j--;
-                    if (j < 0) {
-                        clearInterval(intervalIdManageCirclePage2Item);
+    let intervalIdManageCirclePage2 = setInterval(() => {
+        let currentContainerCircle = $('.number-output').eq(i);
 
-                        setTimeout(
-                            () => {
-                                buildPage3();
-                            }, 2000
-                        )
-                    }
-                }, 50
-            )
-            arrayInterval.push(intervalIdManageCirclePage2Item);
-            i--;
-            if (i < 0) {
-                clearInterval(intervalIdManageCirclePage2);
+        let j = 10;
+        let intervalIdManageCirclePage2Item = setInterval(() => {
+            let currentOutputCircle = currentContainerCircle.children().eq(j);
+            currentOutputCircle.removeClass('bounceIn');
+            currentOutputCircle.addClass('animated zoomOut');
+            j--;
+
+            if (j < 0) {
+                clearInterval(intervalIdManageCirclePage2Item);
+
+                if (!isPage3Displayed) {
+                    isPage3Displayed = true;
+                    setTimeout(() => {
+                        buildPage3();
+                    }, 2000);
+                }
             }
-        }, 50
-    );
+        }, 50);
+
+        arrayInterval.push(intervalIdManageCirclePage2Item);
+        i--;
+
+        if (i < 0) {
+            clearInterval(intervalIdManageCirclePage2);
+        }
+    }, 50);
+
     arrayInterval.push(intervalIdManageCirclePage2);
 }
 
@@ -888,5 +909,3 @@ function animationPage2HideSquare() {
     )
     arrayInterval.push(intervalIdManageSquarePage2);
 }
-
-

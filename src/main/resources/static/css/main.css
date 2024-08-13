@@ -1,8 +1,13 @@
 body {
-    background-color: rgb(56, 56, 56);
+    /* background-color: rgb(56, 56, 56);*/
+    background-color: #000B18;
     padding: 0.5em;
     text-transform: uppercase;
     overflow: hidden;
+}
+
+#partner,#errors{
+    display:none;
 }
 
 .show{
@@ -51,42 +56,42 @@ body {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
- }
+}
 
- /* start style for global table page 1*/
- .itemtable{
+/* start style for global table page 1*/
+.itemtable{
     border-collapse: collapse;
     border-radius: 0.5em;
     overflow: hidden;
     text-align: center;
     display: none;
- }
+}
 
- .itemtable tr{
+.itemtable tr{
     width: 100%;
     height: 2em;
- }
- 
- /* pair */
- .itemtable tr:nth-child(even) {
-     background-color: #f2f2f2;
- }
- 
- /* impair */
- .itemtable tr:nth-child(odd):not(:first-child) {
-     background-color: #d1d0d0 ;
- }
- 
- .itemtable tr:first-child {
-     background-color: red;
-     color:white;
- }
- 
- .itemtable tr td{
-   font-weight: bold;
-   border :0.5px solid  rgb(117, 116, 116);;
- }
-  /* end style for global table */
+}
+
+/* pair */
+.itemtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* impair */
+.itemtable tr:nth-child(odd):not(:first-child) {
+    background-color: #d1d0d0 ;
+}
+
+.itemtable tr:first-child {
+    background-color: #00008B ; /*background-color: red;*/
+    color:white;
+}
+
+.itemtable tr td{
+    font-weight: bold;
+    border :0.5px solid  rgb(117, 116, 116);;
+}
+/* end style for global table */
 
 
 /* start page 1 items 1 */
@@ -101,9 +106,25 @@ div.logo-container {
 }
 
 div.logo-container>img {
-  border-radius:0.5em;
-  height: 100%;
-  width: 100%;
+    border-radius:0.5em;
+    height: 100%;
+    width: 100%;
+}
+
+div.cagnotte-container {
+    background-color: white;
+    border-radius:0.5em;
+    width: 50%;
+    text-align: center;
+    color:white;
+    font-weight: bold;
+    height: 4em;
+}
+
+div.cagnotte-container>img {
+    border-radius:0.5em;
+    height: 100%;
+    width: 100%;
 }
 
 #page1item1{
@@ -152,7 +173,7 @@ div.logo-container>img {
 }
 
 #page1item2-bloc1-item-1{
-    width: 50%;
+    width: 35%;
     height: 100%;
     background-color: #f2f2f2;
     display: flex;
@@ -161,6 +182,24 @@ div.logo-container>img {
     flex-direction: column;
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border-right:1px solid  rgb(56, 56, 56);
+    margin: 0 auto;
+}
+
+#page1item2-bloc1-item-3{
+    width: 35%;
+    height: 100%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
     border-right:1px solid  rgb(56, 56, 56);
     margin: 0 auto;
 }
@@ -168,7 +207,12 @@ div.logo-container>img {
 .label-bloc1{
     font-size: 1.8em !important;
     font-weight: bold !important;
+}
 
+.label-race1{
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    color: red !important;
 }
 
 .jackpot-container{
@@ -239,6 +283,17 @@ div.logo-container>img {
     text-align: center;
     margin: 0 auto;
     transition: all 3s;
+}
+
+.numbJackpot{
+    flex-direction: column;
+    /*width: 2em;*/
+    margin-right: 2em;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3.5em;
+    font-weight: bold;
+    color: red;
 }
 
 .numberJackpot>span{
@@ -349,10 +404,11 @@ div.logo-container>img {
 .value-bloc1{
     font-size: 3em;
     font-weight: bold;
-    color: red;
+    color: black;
+    /*color: #00008B;*/
 }
 #page1item2-bloc1-item-2{
-    width: 50%;
+    width: 30%;
     height: 100%;
     background-color: #f2f2f2;
     display: flex;
@@ -361,8 +417,12 @@ div.logo-container>img {
     flex-direction: column;
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
     margin: 0 auto;
 }
+
+
 /* end item2 bloc 1 */
 
 /* start item2 bloc 2 */
@@ -505,7 +565,7 @@ div.logo-container>img {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 
@@ -536,7 +596,8 @@ div.logo-container>img {
     border-top-right-radius: 0.5em;
     height: 15%;
     width: 100%;
-    background-color: red;
+    background-color: #00008B;
+    /*background-color: red;*/
     color: white;
     display: flex;
     flex-direction: column;
@@ -589,6 +650,7 @@ div.logo-container>img {
 
 
 .number-output-item{
+    /* color: #5F9EA0;*/
     color: #f2f2f2;
     width: 4.5em;
     height: 4.5em;
@@ -623,7 +685,7 @@ div.logo-container>img {
     background: red;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     color:white;
     -webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
@@ -639,7 +701,7 @@ div.logo-container>img {
     background: #f2f2f2;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     color:#3d3d3d !important;
     -webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
@@ -671,6 +733,7 @@ div.logo-container>img {
 .number-input-item{
     width: 5.5em;
     height: 3.8em;
+    /*background-color: #f2f2f2;*/
     background-color: #f2f2f2;
     border: 2px solid  rgb(56, 56, 56);
     display: flex;
@@ -683,6 +746,17 @@ div.logo-container>img {
     font-size: 2em;
 }
 
+.divide2-jackpotPage2{
+    /* display: inline-flex;*/
+    flex-direction: column;
+    /* width: 3.5em;*/
+    margin-right: 2em;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3.5em;
+    font-weight: bold;
+    color: white;
+}
 
 /* end bloc right 1 input  */
 /* end bloc right */
@@ -749,7 +823,8 @@ div.logo-container>img {
     justify-content: center;
     align-items:center;
     height: 100%;
-    background-color: red;
+    background-color: #00008B;
+    /*background-color: red;*/
     color: #f2f2f2;
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
@@ -757,7 +832,7 @@ div.logo-container>img {
 }
 
 .page3-tirage-item span:first-child,
-#page2-tirage span:first-child,
+#page2-tirage span:first-child
 {
     font-size: 1.5em;
 }
@@ -790,6 +865,19 @@ div.logo-container>img {
     align-items:center;
     height: 100%;
     font-weight: bold;
+}
+
+.divide3-jackpotPage3{
+    /* display: inline-flex;*/
+    flex-direction: column;
+    /*width: 2em;*/
+    margin-right: 2em;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3.5em;
+    font-weight: bold;
+    color: white;
+
 }
 
 /* end style page 3 */
@@ -832,7 +920,8 @@ div.logo-container>img {
     width: 30%;
     height: 100%;
     background-color: #f2f2f2;
-    color: red;
+    color: #00008B;
+    /*color: red;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -883,7 +972,7 @@ div.logo-container>img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+
 }
 
 .page4bloc1-bonus-last-tirage-item:not(:last-child){
@@ -971,40 +1060,40 @@ div.logo-container>img {
     border-radius: 0.5em;
     overflow: hidden;
     text-align: center;
- }
+}
 
 
 
 #page4bloc2-table tr{
     width: 100%;
     height: 20%;
- }
- 
- /* pair */
- #page4bloc2-table tr:nth-child(even) {
-    background-color:  #d1d0d0;
- }
- 
- /* impair */
- #page4bloc2-table tr:nth-child(odd) {
-     background-color: #f2f2f2;
- }
+}
 
- .page4bloc2-table-number{
-     display: inline-block;
-     font-weight: bold;
-     height: 2em;
-     width: 2em;
-     font-size: 1.2em;
-     border-radius: 50%;
-     background-color: red;
-     color: white !important;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     margin: 0 auto;
- }
- 
+/* pair */
+#page4bloc2-table tr:nth-child(even) {
+    background-color:  #d1d0d0;
+}
+
+/* impair */
+#page4bloc2-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.page4bloc2-table-number{
+    display: inline-block;
+    font-weight: bold;
+    height: 2em;
+    width: 2em;
+    font-size: 1.2em;
+    border-radius: 50%;
+    background-color: red;
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
 #page4bloc3{
     display: flex;
     flex-direction: row;
@@ -1044,7 +1133,7 @@ div.logo-container>img {
     text-align: center;
     visibility: hidden;
 }
-
+/*
 #page4bloc3-table-1 tr:last-child td:not(:first-child) span{
   display: inline-block;
   height: 2em;
@@ -1059,6 +1148,21 @@ div.logo-container>img {
   margin:0 auto;
   font-weight: bold;
 }
+*/
+#page4bloc3-table-1 tr td span.num{
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    font-size: 1.1em;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin:0 auto;
+    font-weight: bold;
+}
 
 #page4bloc4-table-1{
     width: 40%;
@@ -1071,34 +1175,35 @@ div.logo-container>img {
 }
 
 .page4bloc-table tr{
-   width: 100%;
-   font-weight: bold;
+    width: 100%;
+    font-weight: bold;
 }
 
 .page4bloc-table tr:first-child{
     height: 30%;
 }
- 
+
 
 .page4bloc-table tr:first-child td{
-   color: white;
-   font-weight: bold;
-   background-color: red;
+    color: white;
+    font-weight: bold;
+    background-color: #00008B;
+    /* background-color: red;*/
 }
 
 #page4bloc4-table-1 tr td span.num{
-  display: inline-block;
-  height: 2em;
-  width: 2em;
-  font-size: 1.1em;
-  border-radius: 50%;
-  background-color: #f2f2f2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  margin:0 auto;
-  font-weight: bold;
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    font-size: 1.1em;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin:0 auto;
+    font-weight: bold;
 }
 
 /* pour les cellules ayant des index pair */
@@ -1123,3 +1228,52 @@ div.logo-container>img {
     visibility: hidden;
 }
 /* end page 4 */
+
+/*Bonus style*/
+/* modal dialog */
+#myBonus,
+#myCagnot{
+    display:none !important;
+}
+
+.modal-dialog{
+    position: absolute;
+    width: 600px;
+    height: 600px !important;
+    z-index: 999999999999;
+
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+}
+
+.modal-header{
+    background-color: #B8860B;
+    padding: 16px 16px;
+    color:#FFF;
+    border-bottom:2px dashed #337AB7;
+    /*opacity: 0.1;*/
+}
+.modal-content{
+    text-align: center;
+    font-size: 5em;
+    font-weight: 16em;
+    /*background: url(../assets/jackpot.jpg);
+    background-size: cover;*/
+}
+.modal-body{
+    height: 500px !important;
+    background-color: #FEAA01;/*DodgerBlue*/
+    text-align: center;
+    font-size: 0.8em;
+    /*opacity: 0.1;*/
+}
+.mbonus{
+    font-color: #B8860B;
+}
+.pbonus{
+    color: #F8F8FF;
+}
+._pbonus{
+    font-color: #F8F8FF;
+}

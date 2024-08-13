@@ -1,94 +1,19 @@
 let page4 = $('#page4');
+//let page4 = page4.jsp;
 
 let page4content =
     "<div id='page4bloc1'>" +
     // shuffle
     "<div id='page4bloc1-shuffle' >" +
-    "<img alt='shuffle' src='./assets/shuffle.gif'/>" +
+    "<img alt='shuffle' src='/assets/shuffle.gif'/>" +
     "</div>" +
 
     // jackpot
     "<div id='page4bloc1-jackpot' >" +
     "<span class='label-bloc1'>jackpot</span>" +
     "<div class='jackpot-container-page-4'>" +
-        "<div class='countJackpot'>" +
-            "<span class='numberJackpot-page-4'>" +
-                "<span id='jackpot-0'>0</span>" +
-                "<span id='jackpot-1'>1</span>" +
-                "<span id='jackpot-2'>2</span>" +
-                "<span id='jackpot-3'>3</span>" +
-                "<span id='jackpot-4'>4</span>" +
-                "<span id='jackpot-5'>5</span>" +
-                "<span id='jackpot-6'>6</span>" +
-                "<span id='jackpot-7'>7</span>" +
-                "<span id='jackpot-8'>8</span>" +
-                "<span id='jackpot-9'>9</span>" +
-            "</span>" +
-            "<span class='divider-jackpot'><span>,</span></span>" +
-            "<span class='numberJackpot-page-4'>" +
-                "<span>0</span>" +
-                "<span>1</span>" +
-                "<span>2</span>" +
-                "<span>3</span>" +
-                "<span>4</span>" +
-                "<span>5</span>" +
-                "<span>6</span>" +
-                "<span>7</span>" +
-                "<span>8</span>" +
-                "<span>9</span>" +
-            "</span>" +
-            "<span class='numberJackpot-page-4'>" +
-                "<span>0</span>" +
-                "<span>1</span>" +
-                "<span>2</span>" +
-                "<span>3</span>" +
-                "<span>4</span>" +
-                "<span>5</span>" +
-                "<span>6</span>" +
-                "<span>7</span>" +
-                "<span>8</span>" +
-                "<span>9</span>" +
-            "</span>" +
-            "<span class='numberJackpot-page-4'>" +
-                "<span>0</span>" +
-                "<span>1</span>" +
-                "<span>2</span>" +
-                "<span>3</span>" +
-                "<span>4</span>" +
-                "<span>5</span>" +
-                "<span>6</span>" +
-                "<span>7</span>" +
-                "<span>8</span>" +
-                "<span>9</span>" +
-            "</span>" +
-            "<span class='divider-jackpot'><span>.</span></span>" +
-        "</div>" +
-        "<div class='countJackpot-2'>" +
-            "<span class='numberJackpot-page-4-2'>" +
-                "<span id='jackpot-0'>0</span>" +
-                "<span id='jackpot-1'>1</span>" +
-                "<span id='jackpot-2'>2</span>" +
-                "<span id='jackpot-3'>3</span>" +
-                "<span id='jackpot-4'>4</span>" +
-                "<span id='jackpot-5'>5</span>" +
-                "<span id='jackpot-6'>6</span>" +
-                "<span id='jackpot-7'>7</span>" +
-                "<span id='jackpot-8'>8</span>" +
-                "<span id='jackpot-9'>9</span>" +
-            "</span>" +
-            "<span class='numberJackpot-page-4-2'>" +
-                "<span id='jackpot-0'>0</span>" +
-                "<span id='jackpot-1'>1</span>" +
-                "<span id='jackpot-2'>2</span>" +
-                "<span id='jackpot-3'>3</span>" +
-                "<span id='jackpot-4'>4</span>" +
-                "<span id='jackpot-5'>5</span>" +
-                "<span id='jackpot-6'>6</span>" +
-                "<span id='jackpot-7'>7</span>" +
-                "<span id='jackpot-8'>8</span>" +
-                "<span id='jackpot-9'>9</span>" +
-            "</span>" +
-        "</div>" +
+    "<span class='numbJackpot' id='divide4-jackpot'>" +
+    "</span>" +
     "</div>" +
     "</div>" +
 
@@ -96,31 +21,31 @@ let page4content =
     "<span>Dernier tirage</span>" +
     "<div id ='page4bloc1-bonus-last-tirage-contain'>" +
     "<div class='page4bloc1-bonus-last-tirage-item'>" +
-    "<span class='label'>AUGUSTIN 10</span>" +
-    "<span>ID: 32232323232</span>" +
-    "<span>26/02</span>" +
-    "<span class=''>68000</span>" +
+    "<span class='label-race1' id='coderace_1'></span>" +
+    "<span id='id_1'></span>" +
+    "<span id='heure_1'></span>" +
+    "<span class='' id='b_amount_1'></span>" +
     "</div>" +
 
     "<div class='page4bloc1-bonus-last-tirage-item'>" +
-    "<span class='label'>AUGUSTIN 10</span>" +
-    "<span>ID: 32232323232</span>" +
-    "<span>26/02</span>" +
-    "<span>68000</span>" +
+    "<span class='label-race1' id='coderace_2'></span>" +
+    "<span id='id_2'></span>" +
+    "<span id='heure_2'></span>" +
+    "<span id='b_amount_2'></span>" +
     "</div>" +
 
     "<div class='page4bloc1-bonus-last-tirage-item'>" +
-    "<span class='label' >AUGUSTIN 10</span>" +
-    "<span>ID: 32232323232</span>" +
-    "<span>26/02</span>" +
-    "<span>68000</span>" +
+    "<span class='label-race1' id='coderace_3'></span>" +
+    "<span id='id_3'></span>" +
+    "<span id='heure_3'></span>" +
+    "<span id='b_amount_3'></span>" +
     "</div>" +
     "</div>" +
     "</div>" +
 
     "<div id='page4bloc1-logo-time' >" +
     "<div id='page4bloc1-logo-time-logo' >" +
-    "<img src='./assets/logo.jpeg' alt='logo'/>" +
+    "<img src='' id='myImage4' alt='logo'/>" +
     "</div>" +
     "<div id='page4bloc1-logo-time-time' >" +
     "<span>Time</span>" +
@@ -135,7 +60,8 @@ let page4content =
     "<div id='page4bloc3'>" +
     "<table class='page4bloc-table' id='page4bloc3-table-1'>" +
     "<tr>" +
-    "<td colspan=6>total sum in the last 5 draw</td>" +
+    //  "<td colspan=6>total sum in the last 5 draw</td>" +
+    "<td colspan=6>5 Numeros les plus tirees</td>" +
     "</tr>" +
     "</table>" +
 
@@ -147,9 +73,10 @@ let page4content =
     "</div>" +
 
     "<div id='page4bloc4'>" +
-    "<table class=' page4bloc-table' id='page4bloc4-table-1'>" +
+    "<table class='page4bloc-table' id='page4bloc4-table-1'>" +
     "<tr>" +
-    "<td colspan=5>1 st color of the draw</td>" +
+    //  "<td colspan=6>total sum in the last 5 draw</td>" +
+    "<td colspan=6>5 Numeros les moins tirees</td>" +
     "</tr>" +
     "</table>" +
 
@@ -159,44 +86,45 @@ let page4content =
     "</tr>" +
     "</table>" +
     "</div>"
-    ;
+;
 
 //fake array 5 derniers tirages
+/*
 let arrayDernierTirage = [
     {
         identifiant: '234567',
         heure: '15:45',
-        arrayNumero: [12, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
+        arrayNumero: [1, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
         multiplicateur: '1x'
     },
     {
-        identifiant: '234567',
+        identifiant: '234566',
         heure: '15:45',
         arrayNumero: [12, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
         multiplicateur: '1x'
     },
     {
-        identifiant: '234567',
-        heure: '15:45',
-        arrayNumero: [12, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
+        identifiant: '234565',
+        heure: '14:45',
+        arrayNumero: [35, 43, 31, 50, 68, 36, 72, 8, 80, 16, 24, 33, 56, 74, 46, 28, 78, 11, 45, 4],
         multiplicateur: '1x'
     },
     {
-        identifiant: '234567',
+        identifiant: '234564',
         heure: '15:45',
-        arrayNumero: [12, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
+        arrayNumero: [10, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
         multiplicateur: '1x'
     },
     {
-        identifiant: '234567',
+        identifiant: '234563',
         heure: '15:45',
-        arrayNumero: [12, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
+        arrayNumero: [78, 24, 38, 49, 50, 66, 75, 80, 79, 60, 11, 28, 16, 18, 51, 45, 17, 32, 27, 20],
         multiplicateur: '1x'
     },
 ];
-
+*/
 //fake array numero les plus tirees
-let arrayNumeroLesPlusTirees = [
+let arrayNumeroLesPlusTirees_old = [
     {
         temp: '1x',
         numero: '30',
@@ -240,66 +168,69 @@ let arrayNumeroLesPlusTirees = [
 ];
 
 //fake array pour les multiplicateurs
+/*
 let arrayDernierMultiplicateur = [
     {
-        temp: '1x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[0]['multiplicateur'],
+        time: arrayLastMultiplicateur[0]['heureTirage'].substring(11),
     },
     {
-        temp: '2x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[1]['multiplicateur'],
+        time: arrayLastMultiplicateur[1]['heureTirage'].substring(11),
     },
     {
-        temp: '3x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[2]['multiplicateur'],
+        time: arrayLastMultiplicateur[2]['heureTirage'].substring(11),
     },
     {
-        temp: '4x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[3]['multiplicateur'],
+        time: arrayLastMultiplicateur[3]['heureTirage'].substring(11),
     },
     {
-        temp: '5x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[4]['multiplicateur'],
+        time: arrayLastMultiplicateur[4]['heureTirage'].substring(11),
     },
     {
-        temp: '6x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[5]['multiplicateur'],
+        time: arrayLastMultiplicateur[5]['heureTirage'].substring(11),
     },
     {
-        temp: '7x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[6]['multiplicateur'],
+        time: arrayLastMultiplicateur[6]['heureTirage'].substring(11),
     },
     {
-        temp: '8x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[7]['multiplicateur'],
+        time: arrayLastMultiplicateur[7]['heureTirage'].substring(11),
     },
     {
-        temp: '9x',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[8]['multiplicateur'],
+        time: arrayLastMultiplicateur[8]['heureTirage'].substring(11),
     },
     {
-        temp: '10',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[9]['multiplicateur'],
+        time: arrayLastMultiplicateur[9]['heureTirage'].substring(11),
     },
     {
-        temp: '10',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[10]['multiplicateur'],
+        time: arrayLastMultiplicateur[10]['heureTirage'].substring(11),
     },
     {
-        temp: '10',
-        time: '12:34',
+        temp: arrayLastMultiplicateur[11]['multiplicateur'],
+        time: arrayLastMultiplicateur[11]['heureTirage'].substring(11),
     },
 ];
-
+*/
 //fake array pour la somme totale
-let arraySommeTotale5derniersTirage = [300, 100, 100, 300, 300];
+//let arraySommeTotale5derniersTirage = [300, 100, 100, 300, 300];
 
 //fake array first color of draw
-let arrayFistColorOfDraw = [18, 34, 56, 78, 3];
+//arrayFistColorOfDraw = [18, 34, 56, 78, 3];
 
 function buildLastTirage() {
     let htmlTr = "<table id='page4bloc2-table'>";
     const page4bloc2 = $('#page4bloc2');
+
+
     for (let i = 0; i < arrayDernierTirage.length; i++) {
         htmlTr +=
             "<tr>" +
@@ -315,6 +246,61 @@ function buildLastTirage() {
     }
     htmlTr += "</table>";
     page4bloc2.append(htmlTr);
+}
+
+function buildLastBonus(){
+//    $("#coderace_1").empty();
+//    $("#id_1").empty();
+//    $("#heure_1").empty();
+//    $("#b_amount_1").empty();
+//    $("#coderace_2").empty();
+//    $("#id_2").empty();
+//    $("#heure_2").empty();
+//    $("#b_amount_2").empty();
+//    $("#coderace_3").empty();
+//    $("#id_3").empty();
+//    $("#heure_3").empty();
+//    $("#b_amount_3").empty();
+
+    var nbre = arrayLastBonus.length;
+    switch(nbre){
+        case 1:
+            $("#coderace_1").prepend(arrayLastBonus[0].coderace);
+            $("#id_1").prepend('ID: '+arrayLastBonus[0].code);
+            $("#heure_1").prepend(arrayLastBonus[0].heure);
+            $("#b_amount_1").prepend(arrayLastBonus[0].amount);
+            break;
+        case 2:
+            $("#coderace_1").prepend(arrayLastBonus[0].coderace);
+            $("#id_1").prepend('ID: '+arrayLastBonus[0].code);
+            $("#heure_1").prepend(arrayLastBonus[0].heure);
+            $("#b_amount_1").prepend(arrayLastBonus[0].amount);
+
+            $("#coderace_2").prepend(arrayLastBonus[1].coderace);
+            $("#id_2").prepend('ID: '+arrayLastBonus[1].code);
+            $("#heure_2").prepend(arrayLastBonus[1].heure);
+            $("#b_amount_2").prepend(arrayLastBonus[1].amount);
+            break;
+        case 3:
+            $("#coderace_1").prepend(arrayLastBonus[0].coderace);
+            $("#id_1").prepend('ID: '+arrayLastBonus[0].code);
+            $("#heure_1").prepend(arrayLastBonus[0].heure);
+            $("#b_amount_1").prepend(arrayLastBonus[0].amount);
+
+            $("#coderace_2").prepend(arrayLastBonus[1].coderace);
+            $("#id_2").prepend('ID: '+arrayLastBonus[1].code);
+            $("#heure_2").prepend(arrayLastBonus[1].heure);
+            $("#b_amount_2").prepend(arrayLastBonus[1].amount);
+
+            $("#coderace_3").prepend(arrayLastBonus[2].coderace);
+            $("#id_3").prepend('ID: '+arrayLastBonus[2].code);
+            $("#heure_3").prepend(arrayLastBonus[2].heure);
+            $("#b_amount_3").prepend(arrayLastBonus[2].amount);
+            break;
+        default:
+            break;
+    }
+
 }
 
 function buildNumeroLesPLusTirees() {
@@ -337,19 +323,26 @@ function buildNumeroLesPLusTirees() {
 }
 
 function buildDernierMultiplicateur() {
+
     //build first row
-    let htmlTr = "<tr><td><span>time</span></td>";
+    let htmlTr = "<tr><td><span>multi</span></td>";
     const page4bloc4Table2 = $('#page4bloc4-table-2');
-    for (let i = 0; i < arrayDernierMultiplicateur.length; i++) {
-        htmlTr += "<td><span>" + arrayDernierMultiplicateur[i].time + "</span></td>";
+//    for (let i = 0; i < arrayDernierMultiplicateur.length; i++) {
+//        htmlTr += "<td><span>" + arrayDernierMultiplicateur[i].time + "</span></td>";
+//    }
+    for (let i = 0; i < arrayLastMultiplicateur.length; i++) {
+        htmlTr += "<td><span>" + arrayLastMultiplicateur[i]['multiplicateur'] + "</span></td>";
     }
     htmlTr += "</tr>";
     //end build first row
 
     //build second row
-    htmlTr += "<tr><td><span>multi</span></td>";
-    for (let i = 0; i < arrayDernierMultiplicateur.length; i++) {
-        htmlTr += "<td><span>" + arrayDernierMultiplicateur[i].temp + "</span></td>";
+    htmlTr += "<tr><td><span>time</span></td>";
+//   for (let i = 0; i < arrayDernierMultiplicateur.length; i++) {
+//        htmlTr += "<td><span>" + arrayDernierMultiplicateur[i].temp + "</span></td>";
+//    }
+    for (let i = 0; i < arrayLastMultiplicateur.length; i++) {
+        htmlTr += "<td><span>" + arrayLastMultiplicateur[i]['heureTirage'] + "</span></td>";
     }
     htmlTr += "</tr>";
     //end build second row
@@ -358,30 +351,94 @@ function buildDernierMultiplicateur() {
 
 function buildSommeTotale() {
     //build first row
-    let htmlTr = "<tr><td><span>total</span></td>";
+//    let htmlTr = "<tr><td><span>total</span></td>";
+//   const page4bloc3Table1 = $('#page4bloc3-table-1');
+    /*
+       for (let i = 0; i < arrayDernierTirage.length; i++) {
+           var sum = 0;
+           for (let j = 0; j < arrayDernierTirage[i].arrayNumero.length; j++) {
+               sum = sum + parseInt(arrayDernierTirage[i].arrayNumero[j]);
+           }
+
+           arraySommeTotale5derniersTirage[i] = sum;
+       }
+       for (let i = 0; i < arraySommeTotale5derniersTirage.length; i++) {
+           htmlTr += "<td>" + arraySommeTotale5derniersTirage[i] + "</td>";
+       }
+
+   */
+
+    let htmlTr = "<tr><td><span>temp</span></td>";
     const page4bloc3Table1 = $('#page4bloc3-table-1');
-    for (let i = 0; i < arraySommeTotale5derniersTirage.length; i++) {
-        htmlTr += "<td>" + arraySommeTotale5derniersTirage[i] + "</td>";
+    var _arrayNumeroLesPlusTirees = arrayNumeroLesPlusTirees.slice(0, 5);
+
+    for (let i = 0; i < _arrayNumeroLesPlusTirees.length; i++) {
+        htmlTr += "<td><span>" + _arrayNumeroLesPlusTirees[i].temp + "</span></td>";
     }
     htmlTr += "</tr>";
+    //end build first row
+
+    //build second row
+    htmlTr += "<tr><td><span>numero</span></td>";
+    for (let i = 0; i < _arrayNumeroLesPlusTirees.length; i++) {
+        htmlTr += "<td><span>" + _arrayNumeroLesPlusTirees[i].numero + "</span></td>";
+    }
+    //end build second row
+//    page4bloc3Table2.append(htmlTr);
+
+
+
+
+
+    //   htmlTr += "</tr>";
     //end build first row
     page4bloc3Table1.append(htmlTr);
 }
 
 function buildFirstColorOfDraw() {
     //build first row
-    let htmlTr = "<tr>";
+    //   let htmlTr = "<tr>";
+    //   let htmlTr = "<tr><td><span>total</span></td>";
+    //   const page4bloc4Table1 = $('#page4bloc4-table-1');
+    /*   for (let i = 0; i < arrayFistColorOfDraw.length; i++) {
+           htmlTr += "<td><span class='page4bloc2-table-number num" + arrayFistColorOfDraw[i] + "'>" + arrayFistColorOfDraw[i] + "</span></td>";
+       }*/
+    /*
+       for (let i = 0; i < arrayDernierTirage.length; i++) {
+           var sum = 0;
+           for (let j = 0; j < arrayDernierTirage[i].arrayNumero.length; j++) {
+               sum = sum + parseInt(arrayDernierTirage[i].arrayNumero[j]);
+           }
+
+           arraySommeTotale5derniersTirage[i] = sum;
+       }
+       for (let i = 0; i < arraySommeTotale5derniersTirage.length; i++) {
+           htmlTr += "<td>" + arraySommeTotale5derniersTirage[i] + "</td>";
+       }
+   */
+
+    let htmlTr = "<tr><td><span>temp</span></td>";
     const page4bloc4Table1 = $('#page4bloc4-table-1');
-    for (let i = 0; i < arrayFistColorOfDraw.length; i++) {
-        htmlTr += "<td><span class='page4bloc2-table-number num" + arrayFistColorOfDraw[i] + "'>" + arrayFistColorOfDraw[i] + "</span></td>";
+    var _arrayNumeroLesMoinsTirees = arrayNumeroLesMoinsTirees.slice(0, 5);
+    for (let i = 0; i < _arrayNumeroLesMoinsTirees.length; i++) {
+        htmlTr += "<td><span>" + _arrayNumeroLesMoinsTirees[i].temp + "</span></td>";
     }
     htmlTr += "</tr>";
+    //end build first row
+
+    //build second row
+    htmlTr += "<tr><td><span>numero</span></td>";
+    for (let i = 0; i < _arrayNumeroLesMoinsTirees.length; i++) {
+        htmlTr += "<td><span>" + _arrayNumeroLesMoinsTirees[i].numero + "</span></td>";
+    }
+
+    //  htmlTr += "</tr>";
     //end build first row
     page4bloc4Table1.append(htmlTr);
 }
 
 let currentNumber2 = null;
-let arrayJackpot2 = [
+arrayJackpot2 = [
     3000.19,
     3000.25,
     3000.48,
@@ -427,7 +484,7 @@ function animationJackpotCountNumberPartDecimalPage4(j, k) {
         currentNumber2 = j
     }
 
-    if (j == 0) {
+    if (j === 0) {
         coordY = 0;
         jackpotNumber.css("transform", "translateY(" + coordY + "px)");
 
@@ -460,8 +517,8 @@ function setNumberInjackPotSecondPage4() {
             animationJackpotCountNumberPartDecimalPage4(parseInt(item[6]), 1);
 
             i++;
-            console.log(i, arrayJackpot2.length);
-            if (i == arrayJackpot2.length) {
+            // console.log(i, arrayJackpot2.length);
+            if (i === arrayJackpot2.length) {
                 clearInterval(setNumberInJackpotId);
             }
         }, 100
@@ -491,7 +548,7 @@ function setNumberInjackPotFirstPage4() {
 }
 
 function animateShowElement() {
-    setNumberInjackPotFirstPage4();
+    //setNumberInjackPotFirstPage4();
 
     $('#page4bloc4-table-1').css("visibility", "visible");
     $('#page4bloc4-table-1').addClass('animated bounceInRight');
@@ -583,7 +640,6 @@ function animateTableLastTirage() {
     );
 
     arrayInterval.push(intervalId);
-
 
 }
 
